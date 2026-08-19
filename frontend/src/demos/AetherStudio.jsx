@@ -7,6 +7,24 @@ export default function AetherStudio() {
     gsap.from('.aether-el', { y: 40, opacity: 0, duration: 0.9, stagger: 0.12, ease: 'power3.out' })
   }, [])
 
+  const services = [
+    {
+      title: 'Brand Identity',
+      desc: 'Thoughtful systems and interfaces built to last.',
+      img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      title: 'Digital Products',
+      desc: 'Web and product experiences that feel intentional.',
+      img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      title: 'Art Direction',
+      desc: 'Visual language that carries the brand story.',
+      img: 'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80',
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-[#0c0c0e] text-white">
       <header className="px-6 py-5 flex items-center justify-between border-b border-white/5">
@@ -32,10 +50,20 @@ export default function AetherStudio() {
 
       <section className="px-6 pb-24">
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6">
-          {['Brand Identity', 'Digital Products', 'Art Direction'].map((s) => (
-            <div key={s} className="aether-el p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-violet-500/30 transition-colors">
-              <h3 className="font-display text-xl mb-2">{s}</h3>
-              <p className="text-white/40 text-sm">Thoughtful systems and interfaces built to last.</p>
+          {services.map((s) => (
+            <div key={s.title} className="aether-el group rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden hover:border-violet-500/30 transition-colors">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={s.img}
+                  alt={s.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-display text-xl mb-2">{s.title}</h3>
+                <p className="text-white/40 text-sm">{s.desc}</p>
+              </div>
             </div>
           ))}
         </div>
