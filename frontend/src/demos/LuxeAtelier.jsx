@@ -48,7 +48,7 @@ function LuxeHome() {
       name: 'Structured Trouser',
       price: '$450',
       tag: 'Bottoms',
-      img: 'https://images.unsplash.com/photo-1506629082955-511b1aa78283?auto=format&fit=crop&w=800&q=80',
+      img: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80',
     },
   ]
 
@@ -96,8 +96,8 @@ function LuxeShop() {
     { name: 'Wool Blazer', price: '$780', cat: 'Tailoring', img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80' },
     { name: 'Merino Crew', price: '$280', cat: 'Knitwear', img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80' },
     { name: 'Pleated Trouser', price: '$420', cat: 'Bottoms', img: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80' },
-    { name: 'Leather Derby', price: '$560', cat: 'Footwear', img: 'https://images.unsplash.com/photo-1614252235816-8c852f74fa3c?auto=format&fit=crop&w=800&q=80' },
-    { name: 'Silk Scarf', price: '$180', cat: 'Accessories', img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Leather Derby', price: '$560', cat: 'Footwear', img: 'https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Dress Watch', price: '$420', cat: 'Accessories', img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80' },
   ]
 
   return (
