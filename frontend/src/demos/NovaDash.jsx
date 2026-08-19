@@ -40,8 +40,13 @@ export default function NovaDash() {
           ))}
         </div>
 
-        <div className="dash-card rounded-2xl bg-[#12151c] border border-white/5 p-6 h-64 flex items-center justify-center text-white/20">
-          Chart placeholder · Revenue over time
+        <div className="dash-card rounded-2xl bg-[#12151c] border border-white/5 overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+            alt="Analytics dashboard chart"
+            className="w-full h-64 object-cover opacity-90"
+            loading="lazy"
+          />
         </div>
       </main>
     </div>
