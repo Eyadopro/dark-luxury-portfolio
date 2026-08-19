@@ -13,7 +13,7 @@ const projects = [
     year: '2025',
     desc: 'Complete e-commerce experience for a luxury clothing brand. Multi-page demo with product catalog, lookbook and checkout flow.',
     demo: '/demo/luxe-atelier',
-    color: 'from-amber-900/40 to-black',
+    img: 'https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'nova-dash',
@@ -22,7 +22,7 @@ const projects = [
     year: '2025',
     desc: 'Real-time analytics platform with dark UI, charts and role-based views. Built as a fully interactive demo.',
     demo: '/demo/nova-dash',
-    color: 'from-blue-900/30 to-black',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
   },
   {
     id: 'aether-studio',
@@ -31,7 +31,7 @@ const projects = [
     year: '2024',
     desc: 'Agency website with case studies, services and contact. Smooth page transitions and refined typography.',
     demo: '/demo/aether-studio',
-    color: 'from-violet-900/30 to-black',
+    img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
   },
 ]
 
@@ -61,15 +61,22 @@ export default function ProjectsPage() {
           Each project includes a live interactive demo you can explore inside this site.
         </p>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {projects.map((p) => (
             <article
               key={p.id}
               className="project-row group relative overflow-hidden rounded-3xl border border-white/5 bg-black-50 hover:border-gold/25 transition-all duration-500"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${p.color} opacity-60 group-hover:opacity-80 transition-opacity`} />
-              <div className="relative p-8 md:p-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
-                <div>
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="aspect-[16/11] md:aspect-auto overflow-hidden">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-end">
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-xs text-gold tracking-wider uppercase">{p.category}</span>
                     <span className="text-xs text-muted">{p.year}</span>
@@ -77,21 +84,21 @@ export default function ProjectsPage() {
                   <h2 className="font-display text-3xl md:text-4xl mb-3 group-hover:text-gold transition-colors duration-300">
                     {p.title}
                   </h2>
-                  <p className="text-soft max-w-md leading-relaxed">{p.desc}</p>
-                </div>
-                <div className="flex gap-3 shrink-0">
-                  <Link
-                    to={p.demo}
-                    className="px-6 py-3 bg-gold text-black text-sm font-semibold rounded-full hover:bg-gold-light transition-colors"
-                  >
-                    Open Live Demo
-                  </Link>
-                  <Link
-                    to={`/projects/${p.id}`}
-                    className="px-6 py-3 border border-white/20 text-sm font-medium rounded-full hover:border-gold/40 hover:text-gold transition-colors"
-                  >
-                    Case Study
-                  </Link>
+                  <p className="text-soft max-w-md leading-relaxed mb-8">{p.desc}</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      to={p.demo}
+                      className="px-6 py-3 bg-gold text-black text-sm font-semibold rounded-full hover:bg-gold-light transition-colors"
+                    >
+                      Open Live Demo
+                    </Link>
+                    <Link
+                      to={`/projects/${p.id}`}
+                      className="px-6 py-3 border border-white/20 text-sm font-medium rounded-full hover:border-gold/40 hover:text-gold transition-colors"
+                    >
+                      Case Study
+                    </Link>
+                  </div>
                 </div>
               </div>
             </article>
