@@ -31,6 +31,27 @@ function LuxeHome() {
     gsap.from('.luxe-card', { y: 50, opacity: 0, duration: 0.8, stagger: 0.12, delay: 0.3, ease: 'power3.out' })
   }, [])
 
+  const featured = [
+    {
+      name: 'Tailored Overcoat',
+      price: '$890',
+      tag: 'Outerwear',
+      img: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Silk Knit Polo',
+      price: '$320',
+      tag: 'Knitwear',
+      img: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Structured Trouser',
+      price: '$450',
+      tag: 'Bottoms',
+      img: 'https://images.unsplash.com/photo-1506629082955-511b1aa78283?auto=format&fit=crop&w=800&q=80',
+    },
+  ]
+
   return (
     <div className="bg-[#0a0a0a] text-white min-h-screen">
       <section className="luxe-hero pt-32 pb-20 px-6 text-center">
@@ -48,16 +69,15 @@ function LuxeHome() {
 
       <section className="px-6 pb-24">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
-          {[
-            { name: 'Tailored Overcoat', price: '$890', tag: 'Outerwear' },
-            { name: 'Silk Knit Polo', price: '$320', tag: 'Knitwear' },
-            { name: 'Structured Trouser', price: '$450', tag: 'Bottoms' },
-          ].map((item) => (
+          {featured.map((item) => (
             <div key={item.name} className="luxe-card group">
-              <div className="aspect-[3/4] bg-gradient-to-b from-[#1a1a1a] to-[#111] mb-4 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-white/10 text-6xl font-display">
-                  {item.tag[0]}
-                </div>
+              <div className="aspect-[3/4] mb-4 relative overflow-hidden bg-[#141414]">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
               <p className="text-xs text-white/40 uppercase tracking-wider mb-1">{item.tag}</p>
               <h3 className="text-lg mb-1 group-hover:text-white/80 transition-colors">{item.name}</h3>
@@ -72,12 +92,12 @@ function LuxeHome() {
 
 function LuxeShop() {
   const products = [
-    { name: 'Cashmere Coat', price: '$1,200', cat: 'Outerwear' },
-    { name: 'Wool Blazer', price: '$780', cat: 'Tailoring' },
-    { name: 'Merino Crew', price: '$280', cat: 'Knitwear' },
-    { name: 'Pleated Trouser', price: '$420', cat: 'Bottoms' },
-    { name: 'Leather Derby', price: '$560', cat: 'Footwear' },
-    { name: 'Silk Scarf', price: '$180', cat: 'Accessories' },
+    { name: 'Cashmere Coat', price: '$1,200', cat: 'Outerwear', img: 'https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Wool Blazer', price: '$780', cat: 'Tailoring', img: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Merino Crew', price: '$280', cat: 'Knitwear', img: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Pleated Trouser', price: '$420', cat: 'Bottoms', img: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Leather Derby', price: '$560', cat: 'Footwear', img: 'https://images.unsplash.com/photo-1614252235816-8c852f74fa3c?auto=format&fit=crop&w=800&q=80' },
+    { name: 'Silk Scarf', price: '$180', cat: 'Accessories', img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80' },
   ]
 
   return (
@@ -88,7 +108,14 @@ function LuxeShop() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((p) => (
             <div key={p.name} className="group cursor-pointer">
-              <div className="aspect-[3/4] bg-[#141414] mb-4 group-hover:bg-[#1a1a1a] transition-colors" />
+              <div className="aspect-[3/4] mb-4 overflow-hidden bg-[#141414]">
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
               <p className="text-xs text-white/40 uppercase mb-1">{p.cat}</p>
               <h3 className="text-lg">{p.name}</h3>
               <p className="text-white/60 mt-1">{p.price}</p>
@@ -101,6 +128,13 @@ function LuxeShop() {
 }
 
 function LuxeLookbook() {
+  const frames = [
+    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&q=80',
+  ]
+
   return (
     <div className="bg-[#0a0a0a] text-white min-h-screen pt-28 px-6 pb-20">
       <div className="max-w-4xl mx-auto text-center">
@@ -109,9 +143,14 @@ function LuxeLookbook() {
           A study in proportion and restraint. Shot in muted tones against architectural backdrops.
         </p>
         <div className="grid gap-6">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="aspect-[16/9] bg-gradient-to-r from-[#151515] to-[#0f0f0f] flex items-center justify-center text-white/10 text-4xl font-display">
-              Frame 0{i}
+          {frames.map((src, i) => (
+            <div key={i} className="aspect-[16/9] overflow-hidden bg-[#111]">
+              <img
+                src={src}
+                alt={`Lookbook frame ${i + 1}`}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
